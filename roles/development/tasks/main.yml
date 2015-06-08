@@ -1,0 +1,29 @@
+---
+
+# Development configuration
+
+- name: Installing Version Control Systems
+  pkgmgr: pkg={{ item }} state=present
+  with_os_specific:
+    - git
+    - mercurial
+    - meld
+
+# Includes development environments
+- include: python.yml
+- include: ruby.yml
+#- include: javascript.yml
+#- include: java.yml
+
+- name: Configuring .gitconfig
+  template: src=gitconfig.j2 dest="/home/{{username}}/.gitconfig" owner={{username}} group={{username}} mode=0644
+
+- name: Installing terminator
+  pkgmgr: pkg=terminator state=present
+
+- name: Installing tmux
+  pkgmgr: pkg=tmux state=present
+
+- name: Installing Tmuxinator
+  command: gem install tmuxinator
+  tags: tmuxinator

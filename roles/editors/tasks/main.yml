@@ -1,0 +1,7 @@
+---
+
+#Editors
+
+- include: vim.yml
+- include: emacs.yml
+- include: sublime.yml

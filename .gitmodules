@@ -1,0 +1,6 @@
+[submodule "external/library-pkgmgr"]
+	path = external/library-pkgmgr
+	url = https://github.com/mantiz/ansible-library-pkgmgr
+[submodule "external/lookup-plugin-os-specific"]
+	path = external/lookup-plugin-os-specific
+	url = https://github.com/mantiz/ansible-lookup-plugin-os-specific

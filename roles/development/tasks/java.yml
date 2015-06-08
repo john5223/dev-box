@@ -1,0 +1,17 @@
+---
+
+# Java
+
+- name: Installing OpenJDK 8
+  pkgmgr: pkg={{ item }} state=present
+  with_os_specific:
+      - default: openjdk-7-jdk
+        Archlinux: jdk8-openjdk
+
+
+- name: Installing Java tools
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - default: maven
+    - default: ant
+      Archlinux: apache-ant

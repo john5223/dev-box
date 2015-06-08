@@ -1,0 +1,8 @@
+---
+
+# Ruby
+
+- name: Installing system Ruby
+  pkgmgr: pkg={{ item }} state=present
+  with_os_specific:
+      - default: ruby

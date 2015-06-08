@@ -1,0 +1,63 @@
+---
+#System tasks
+
+
+- name: Updating system packages
+  pkgmgr: state=present update_cache=yes
+
+- name: Installing system packages
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - sudo
+    - alsa-utils
+    - Debian: openssh-client
+      Archlinux: openssh
+    - clang
+    - cmake
+    #- Debian: mono-devel
+    #  Archlinux: mono
+    - unrar
+    - tree
+    - Archlinux: wicd
+    - Archlinux: yaourt
+    - Archlinux: powertop
+    - Archlinux: lib32-gcc-libs
+    - Archlinux: lib32-ncurses
+    - Archlinux: lib32-zlib
+
+- name: Installing support tools
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - p7zip
+    - curl
+    - tar
+    - zip
+    - unzip
+    - wget
+    - mlocate
+    - dnsutils
+    - whois
+
+- name: Installing video drivers
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - Archlinux: xf86-video-intel
+    - Archlinux: xf86-video-fbdev
+    - Archlinux: xf86-video-vesa
+    - Archlinux: xf86-input-synaptics
+
+- name: Installing X
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - default: xserver-xorg
+      Archlinux: xorg-server
+    - default: x11-xserver-utils
+      Archlinux: xorg-server-utils
+    - default: xinit
+      Archlinux: xorg-xinit
+    - default: x11-apps
+      Archlinux: xorg-apps
+    - Archlinux: mesa
+
+- name: Providing synaptics configuration
+  copy: src=50-synaptics.conf dest=/etc/X11/xorg.conf.d/ owner=root group=root

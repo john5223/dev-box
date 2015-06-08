@@ -1,0 +1,22 @@
+---
+
+# Shell enhancement
+
+- name: Installing zsh
+  pkgmgr: pkg=zsh state=present
+
+- name: Checking Oh-my-ZSH presence
+  register: zsh
+  stat: path="/home/{{username}}/.oh-my-zsh"
+
+- name: Installing Oh-my-ZSH
+  sudo_user: "{{username}}"
+  when: zsh.stat.exists == False
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest="/home/{{username}}/.oh-my-zsh"
+
+- name: Changing default shell
+  command: "chsh -s /bin/zsh {{username}}"
+
+- name: Adding .zshrc default configuration
+  template: src=.zshrc.j2 dest="/home/{{username}}/.zshrc" owner={{username}} group={{username}}
+  tags: config

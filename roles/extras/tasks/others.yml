@@ -1,0 +1,27 @@
+---
+
+# Some useful programs and tools
+
+- name: Installing GIMP
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - gimp
+
+- name: Installing Keepassx
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - keepassx
+
+- name: Installing Libreoffice
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - ttf-dejavu
+    - Archlinux: artwiz-fonts
+    - default: libreoffice
+      Archlinux: libreoffice-en-US
+    - ArchLinux: libreoffice-fresh
+
+- name: Installing VLC
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - vlc

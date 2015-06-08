@@ -1,0 +1,54 @@
+---
+
+# Overview: configuring a developer machine in just minutes
+
+
+# Check for vairables
+#########################
+- hosts: all
+  remote_user: root
+  vars_files:
+    - vars/defaults.yml
+    - vars/user.yml
+  tasks:
+    - name: Checking required variables
+      fail: msg="Variable '{{item}}' is not defined."
+      when: "{{item}} is not defined"
+      with_items:
+        - fullname
+        - email
+        - username
+
+
+# Group hosts by OS
+####################
+- hosts: all
+  tasks:
+     - group_by: key=os_{{ ansible_distribution }}
+
+
+# Arch Linux: Install YAOURT
+#############################
+- hosts: os_Archlinux
+  gather_facts: False
+  tasks:
+    - include: roles/system/tasks/yaourt.yml
+
+
+# All hosts: Install development packages
+###################################
+- hosts: all
+  remote_user: root
+  sudo: yes
+  vars_files:
+    - vars/defaults.yml
+    - vars/user.yml
+  roles:
+    - system
+    - shell
+    - containers
+    - development
+    - editors
+    - extras
+    #- { role: postgresql, tags: [ 'db' ] }
+    #- { role: redis, tags: [ 'db' ] }

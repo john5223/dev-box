@@ -1,0 +1,14 @@
+---
+
+# KVM virtualization
+
+- name: Installing KVM virtualization
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+  - Debian: libvirt-dev
+    ArchLinux: libvirt
+  - Debian: python-urlgrabber
+    ArchLinux: urlgrabber
+  - Debian: virt-viewer
+    ArchLinux: virtviewer
+  - virt-manager

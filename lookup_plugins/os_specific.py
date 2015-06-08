@@ -1,0 +1,1 @@
+../external/lookup-plugin-os-specific/os_specific.py
