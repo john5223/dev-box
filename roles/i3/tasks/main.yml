@@ -12,10 +12,12 @@
     - Archlinux: xscreensaver
     - Archlinux: archlinux-xdg-menu
 
-- name: Adding lightdm.conf
-  copy: src=lightdm.conf dest="/etc/lightdm/lightdm.conf" backup=yes
+- name: Adding lxdm.conf
+  copy: src=lxdm.conf dest="/etc/lxdm/lxdm.conf" backup=yes
 
 - name: Adding .xinitrc
   copy: src=.xinitrc dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes
 
-
+- name: Starting LXDM
+  command: systemctl enable lxdm.service
+  when: ansible_os_family == 'Archlinux'
