@@ -15,3 +15,5 @@
 
 - name: Updating system packages
   pacman: name=base-devel state=present update_cache=yes
+
+
