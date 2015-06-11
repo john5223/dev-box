@@ -16,4 +16,4 @@
 
 
 - name: Updating system packages
-  pkgmgr: state=present update_cache=yes
+  command: pacman -Syu
