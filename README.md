@@ -9,7 +9,7 @@ UBUNTU
 =======
 
 
-	bash bin/boostrap-ubuntu.sh
+	curl https://raw.githubusercontent.com/john5223/dev-box/master/bin/bootstrap-ubuntu.sh | bash
 
 
 ARCH
