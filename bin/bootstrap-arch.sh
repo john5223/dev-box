@@ -15,11 +15,11 @@ pacman -S ansible git --noconfirm
 
 echo "Cloning ansible-devel repository..."
 if [ ! -d "$ROOT_FOLDER" ]; then
-    git clone "$REPOSITORY" "$ROOT_FOLDER"
+    git clone "$REPOSITORY" "$ROOT_FOLDER" --recursive
     cd "$ROOT_FOLDER"
 else
     cd "$ROOT_FOLDER"
-    git pull
+    git pull && git submodule init && git submodule update && git submodule status
 fi
 
 # Proceeding with orchestration
