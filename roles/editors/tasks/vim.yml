@@ -2,6 +2,11 @@
 
 # VIM
 
+- name: Installing VIM
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - default: vim
+
 - name: Installing Vundle
   sudo_user: "{{username}}"
   git: repo=https://github.com/gmarik/Vundle.vim.git dest="/home/{{username}}/.vim/bundle/Vundle.vim"

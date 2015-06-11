@@ -4,9 +4,15 @@
 - name: Installing I3
   pkgmgr: pkg={{item}} state=present
   with_os_specific:
+    - ArchLinux: lightdm
     - ArchLinux: i3
     - ArchLinux: dmenu
 
 
+- name: Adding lightdm.conf
+  copy: src=lightdm.conf dest="/etc/lightdm/lightdm.conf" backup=yes
+
 - name: Adding .xinitrc
   copy: src=.xinitrc dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes
+
+
