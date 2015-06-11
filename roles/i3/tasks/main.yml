@@ -4,9 +4,9 @@
 - name: Installing I3
   pkgmgr: pkg={{item}} state=present
   with_os_specific:
-    - ArchLinux: lightdm
-    - ArchLinux: i3
-    - ArchLinux: dmenu
+    - Archlinux: lightdm
+    - Archlinux: i3
+    - Archlinux: dmenu
     - Archlinux: pcmanfm
     - Archlinux: xarchiver
     - Archlinux: xscreensaver
