@@ -1,7 +1,7 @@
 ---
 
 - hosts: all
-  gather_facts: False
+  gather_facts: True
   vars_files:
     - vars/defaults.yml
     - vars/user.yml
