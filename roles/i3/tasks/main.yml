@@ -5,6 +5,7 @@
   pkgmgr: pkg={{item}} state=present
   with_os_specific:
     - Archlinux: lightdm
+    - Archlinux: lightdm-gtk-greeter
     - Archlinux: i3
     - Archlinux: dmenu
     - Archlinux: pcmanfm
