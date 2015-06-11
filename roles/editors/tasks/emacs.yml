@@ -1,6 +1,0 @@
----
-
-- name: Installing Emacs
-  pkgmgr: pkg={{item}} state=present
-  with_os_specific:
-    - default: emacs

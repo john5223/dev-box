@@ -4,11 +4,6 @@ set -e
 ROOT_FOLDER=~/dev-box/
 REPOSITORY=https://github.com/john5223/dev-box.git
 
-### Requiring environment variables
-read -p "Provide your full name: " FULLNAME
-read -p "Provide your username: " USERNAME
-read -p "Provide your email: " EMAIL
-
 # Installing dependencies
 echo "Installing dependencies..."
 pacman -S ansible git --noconfirm
@@ -24,9 +19,9 @@ fi
 
 # Proceeding with orchestration
 echo "Starting orchestration..."
-ansible-playbook orchestrate.yml -i inventory --connection=local -e "fullname='$FULLNAME' email=$EMAIL username=$USERNAME"
+ansible-playbook orchestrate.yml -i inventory --connection=local
 #ansible-playbook awesome.yml -i inventory --connection=local -e "username=$USERNAME"
-ansible-playbook i3.yml -i inventory --connection=local -e "username=$USERNAME"
+ansible-playbook i3.yml -i inventory --connection=local
 
 echo "Configuration completed!"
 echo "The following command is *mandatory*:"

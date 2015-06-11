@@ -50,5 +50,6 @@
     - development
     - editors
     - extras
+    - { role: browsers, tags: [ 'browsers' ] }
     #- { role: postgresql, tags: [ 'db' ] }
     #- { role: redis, tags: [ 'db' ] }

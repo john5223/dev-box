@@ -3,5 +3,9 @@
 #Editors
 
 - include: vim.yml
-- include: emacs.yml
-- include: sublime.yml
+
+- name: Installing Emacs + Sublime
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - default: emacs
+    - default: sublime-text
