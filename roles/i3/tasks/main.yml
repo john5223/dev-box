@@ -1,0 +1,12 @@
+---
+#System tasks
+
+- name: Installing I3
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - ArchLinux: i3
+    - ArchLinux: dmenu
+
+
+- name: Adding .xinitrc
+  copy: src=.xinitrc dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes

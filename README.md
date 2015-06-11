@@ -2,6 +2,9 @@ DEV BOX
 ==========
 
 
+
+
+
 UBUNTU
 =======
 
@@ -13,7 +16,7 @@ ARCH
 =======
 
 
-	bash bin/boostrap-arch.sh
+	curl https://raw.githubusercontent.com/john5223/dev-box/master/bin/bootstrap-arch.sh | bash
 
 
 

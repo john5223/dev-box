@@ -25,7 +25,8 @@ fi
 # Proceeding with orchestration
 echo "Starting orchestration..."
 ansible-playbook orchestrate.yml -i inventory --connection=local -e "fullname='$FULLNAME' email=$EMAIL username=$USERNAME"
-ansible-playbook awesome.yml -i inventory --connection=local -e "username=$USERNAME"
+#ansible-playbook awesome.yml -i inventory --connection=local -e "username=$USERNAME"
+ansible-playbook i3.yml -i inventory --connection=local -e "username=$USERNAME"
 
 echo "Configuration completed!"
 echo "The following command is *mandatory*:"

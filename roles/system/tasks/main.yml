@@ -18,6 +18,8 @@
     #  Archlinux: mono
     - unrar
     - tree
+    - ArchLinux: dialog
+    - ArchLinux: wpa_supplicant
     - Archlinux: wicd
     - Archlinux: yaourt
     - Archlinux: powertop
