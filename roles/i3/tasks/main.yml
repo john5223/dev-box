@@ -1,16 +1,43 @@
 ---
 #System tasks
 
+
 - name: Installing I3
+  sudo: True
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - Archlinux: i3
+
+- name: Installing i3 packages
   pkgmgr: pkg={{item}} state=present
   with_os_specific:
     - Archlinux: lxdm
-    - Archlinux: i3
     - Archlinux: dmenu
     - Archlinux: pcmanfm
     - Archlinux: xarchiver
     - Archlinux: xscreensaver
     - Archlinux: archlinux-xdg-menu
+    - Archlinux: acpi
+
+- name: Installing more i3 packages/themes
+  include: ../../../tasks/yaourt-S.yml
+  vars:
+    packages:
+      - "x11-ssh-askpass"
+      - "dex"
+      - "dunst"
+      - "mediterraneannight-theme"
+      - "faenza-icon-theme"
+      - "lxappearance"
+      - "xorg-xmodmap"
+      - "xorg-xdpyinfo"
+      - "scrot"
+      #- "j4-dmenu-desktop"
+
+
+- name: Adding i3/config
+  sudo: True
+  copy: src=i3.config dest="/etc/i3/config" backup=yes
 
 - name: Adding lxdm.conf
   copy: src=lxdm.conf dest="/etc/lxdm/lxdm.conf" backup=yes
@@ -20,8 +47,9 @@
 
 - name: Adding GTK2 + GTK3 Configs
   copy: src=.gtkrc-2.0 dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes
-  copy: src=gtk-3-0.settings.ini dest="/home/{{username}}/gtk-3-0/settings.ini" owner={{username}} group={{username}} backup=yes
+  copy: src=gtk-3.0.settings.ini dest="/etc/gtk-3.0/settings.ini" owner={{username}} group={{username}} backup=yes
 
 - name: Starting LXDM
+  sudo: True
   command: systemctl enable lxdm.service
   when: ansible_os_family == 'Archlinux'

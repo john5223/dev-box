@@ -1,6 +1,7 @@
 remote_user: vagrant
 fullname: John Curran
 username: john
+makepkg_user: john
 email: curran736@gmail.com
 dotfiles_repo: https://github.com/john5223/dotfiles.git
 work_directory: "/home/{{ user }}/work"

@@ -1,0 +1,13 @@
+---
+- command: pacman -Q {{item}}
+  register: packages_presence
+  with_items: packages
+  ignore_errors: yes
+  changed_when: "packages_presence|failed"
+
+- name: install package if necessary
+  sudo: False
+  remote_user: "{{username}}"
+  command: yaourt -S {{item.item}} --noconfirm
+  when: item|failed
+  with_items: packages_presence.results

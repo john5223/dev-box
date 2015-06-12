@@ -3,6 +3,7 @@
 
 
 - name: Updating system packages
+  sudo: True
   pkgmgr: state=present update_cache=yes
 
 - name: Installing system packages
@@ -47,6 +48,7 @@
     - Archlinux: xf86-video-fbdev
     - Archlinux: xf86-video-vesa
     - Archlinux: xf86-input-synaptics
+
 
 - name: Installing X
   pkgmgr: pkg={{item}} state=present

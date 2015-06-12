@@ -27,3 +27,25 @@
 - name: Installing Tmuxinator
   command: gem install tmuxinator
   tags: tmuxinator
+
+
+- name: Installing Vagrant
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - default: vagrant
+  tags: vagrant
+
+
+- name: Installing Chef-DK
+  include: ../../../tasks/yaourt-S.yml
+  vars:
+    packages:
+      - "chef-dk"
+  tags: vagrant
+
+
+- name: Installing Vagrant Plugins
+  remote_user: "{{username}}"
+  command: vagrant plugin install vagrant-vbguest vagrant-share vagrant-libvirt vagrant-lxc 
+  command: vagrant plugin install vagrant-omnibus vagrant-chef-zero vagrant-berkshelf
+  tags: vagrant

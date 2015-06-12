@@ -25,3 +25,31 @@
   pkgmgr: pkg={{item}} state=present
   with_os_specific:
     - vlc
+
+- name: Installing all other packages
+  include: ../../../tasks/yaourt-S.yml
+  vars:
+    packages:
+      - "{{system_packages}}"
+      #- "{{fonts_packages}}"
+      - "{{compression_packages}}"
+      - "{{virtualization_packages}}"
+      - "{{office_packages}}"
+      - "{{dev_packages}}"
+      - "{{file_manager_packages}}"
+  tags: others
+
+
+- name: "Enable other services"
+  service:
+    name: "{{item}}"
+    state: "started"
+    enabled: "yes"
+  with_items:
+    - "tlp"
+    - "tlp-sleep"
+    - "ntpd"
+    - "dhcpcd"
+    - "cups"
+    - "cups-browsed"
+    - "avahi-daemon"
