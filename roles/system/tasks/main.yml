@@ -21,12 +21,13 @@
     - tree
     - ArchLinux: dialog
     - ArchLinux: wpa_supplicant
-    - Archlinux: wicd
     - Archlinux: yaourt
     - Archlinux: powertop
     - Archlinux: lib32-gcc-libs
     - Archlinux: lib32-ncurses
     - Archlinux: lib32-zlib
+    #- Archlinux: wicd
+
 
 - name: Installing support tools
   pkgmgr: pkg={{item}} state=present
