@@ -39,8 +39,10 @@
   sudo: True
   copy: src=i3.config dest="/etc/i3/config" backup=yes
 
-- name: Adding lxdm.conf
-  copy: src=lxdm.conf dest="/etc/lxdm/lxdm.conf" backup=yes
+- name: Adding i3status.conf
+  sudo: True
+  copy: src=i3status.conf dest="/etc/i3status.conf" backup=yes
+
 
 - name: Adding .xinitrc
   copy: src=.xinitrc dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes
@@ -53,6 +55,10 @@
   sudo: True
   command: systemctl enable ntpd
   when: ansible_os_family == 'Archlinux'
+
+
+#- name: Adding lxdm.conf
+#  copy: src=lxdm.conf dest="/etc/lxdm/lxdm.conf" backup=yes
 
 #- name: Starting LXDM
 #  sudo: True
