@@ -49,7 +49,7 @@
   copy: src=.gtkrc-2.0 dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes
   copy: src=gtk-3.0.settings.ini dest="/etc/gtk-3.0/settings.ini" owner={{username}} group={{username}} backup=yes
 
-- name: Starting LXDM
-  sudo: True
-  command: systemctl enable lxdm.service
-  when: ansible_os_family == 'Archlinux'
+#- name: Starting LXDM
+#  sudo: True
+#  command: systemctl enable lxdm.service
+#  when: ansible_os_family == 'Archlinux'

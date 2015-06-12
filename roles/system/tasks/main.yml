@@ -65,6 +65,7 @@
 
 - name: Providing synaptics configuration
   copy: src=50-synaptics.conf dest=/etc/X11/xorg.conf.d/ owner=root group=root
+  tags: mouse
 
 - name: Adding default user
   user: name={{username}} shell=/bin/bash groups=wheel append=yes

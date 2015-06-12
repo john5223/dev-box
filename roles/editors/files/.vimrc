@@ -103,10 +103,6 @@ let NERDTreeIgnore=['\.pyc$']           " Ignores python pyc files
 let g:NERDTreeShowHidden=1
 map <C-e> :NERDTreeToggle<CR>
 
-nmap <leader>T :enew<CR>                " To open a new empty buffer
-nmap <Tab> :bnext<CR>                   " Move to the next buffer
-nmap <S-Tab> :bprevious<CR>            " Move to the previous buffer
-nmap <C-w> :bp <BAR> bd #<CR>           " Close the current buffer and move to the previous one
 
 let g:jedi#use_tabs_not_buffers=0
 
