@@ -18,6 +18,10 @@
 - name: Adding .xinitrc
   copy: src=.xinitrc dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes
 
+- name: Adding GTK2 + GTK3 Configs
+  copy: src=.gtkrc-2.0 dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes
+  copy: src=gtk-3-0.settings.ini dest="/home/{{username}}/gtk-3-0/settings.ini" owner={{username}} group={{username}} backup=yes
+
 - name: Starting LXDM
   command: systemctl enable lxdm.service
   when: ansible_os_family == 'Archlinux'
