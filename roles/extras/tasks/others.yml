@@ -40,6 +40,10 @@
   tags: others
 
 
+- name: modprobe vboxdrv (VirtualBox)
+  copy: content="vboxdrv\nvboxnetflt" dest=/etc/modules-load.d/virtualbox.conf
+  tags: vbox
+
 - name: "Enable other services"
   service:
     name: "{{item}}"
