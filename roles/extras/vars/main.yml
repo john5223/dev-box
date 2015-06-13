@@ -95,6 +95,8 @@ file_manager_packages:
   - "thunar-vcs-plugin"
 # theses fonts will provide you good fonts on your whole system
 fonts_packages:
+  - ttf-font-awesome
+  - ttf-font-icons
   # programming font
   - "otf-inconsolatazi4-ibx"
   - "artwiz-fonts"

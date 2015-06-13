@@ -38,14 +38,16 @@
 - name: Adding i3/config
   sudo: True
   copy: src=i3.config dest="/etc/i3/config" backup=yes
+  tags: config
 
 - name: Adding i3status.conf
   sudo: True
   copy: src=i3status.conf dest="/etc/i3status.conf" backup=yes
-
+  tags: config
 
 - name: Adding .xinitrc
   copy: src=.xinitrc dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes
+  tags: config
 
 - name: Adding GTK2 + GTK3 Configs
   copy: src=.gtkrc-2.0 dest="/home/{{username}}/" owner={{username}} group={{username}} backup=yes

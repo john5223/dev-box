@@ -46,6 +46,7 @@
   roles:
     - system
     - shell
+    - i3
     - containers
     - development
     - editors
