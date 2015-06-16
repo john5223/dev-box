@@ -1,0 +1,22 @@
+---
+
+
+- name: Installing VirtualBox
+  pkgmgr: pkg={{item}} state=present
+  with_os_specific:
+    - Archlinux: virtualbox
+    - Archlinux: virtualbox-ext-oracle
+    - Archlinux: virtualbox-host-modules
+    - Archlinux: virtualbox-guest-iso
+    - Archlinux: packer-io
+    - Archlinux: docker
+    - Archlinux: vagrant
+    - Archlinux: net-tools
+  tags: virtualbox
+
+- name: Load vbox kernel modules
+  sudo: True
+  copy: src=virtualbox.conf dest=/etc/modules-load.d/virtualbox.conf owner=root group=root mode=0755
+  tags: 
+    - virtualbox
+    - config

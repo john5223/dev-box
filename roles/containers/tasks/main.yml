@@ -3,4 +3,6 @@
 # Containers
 
 - include: kvm.yml
+- include: virtualbox.yml
+
 #- include: docker.yml

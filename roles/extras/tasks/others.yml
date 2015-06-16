@@ -37,6 +37,7 @@
       - "{{office_packages}}"
       - "{{dev_packages}}"
       - "{{file_manager_packages}}"
+      - "{{communication_packages}}"
   tags: others
 
 

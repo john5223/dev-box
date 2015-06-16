@@ -18,6 +18,7 @@
     - Archlinux: xscreensaver
     - Archlinux: archlinux-xdg-menu
     - Archlinux: acpi
+    - Archlinux: feh
 
 - name: Installing more i3 packages/themes
   include: ../../../tasks/yaourt-S.yml

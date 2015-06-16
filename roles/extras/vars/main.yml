@@ -47,21 +47,17 @@ system_packages:
   - "jdk8-openjdk"
   - "fuse-exfat"
   - "nfs-utils"
+  - "pm-utils"
+communication_packages:
+  - skype
+  - scudcloud
+  - xchat
 compression_packages:
   - "xarchiver"
   - "p7zip"
   - "zip"
   - "unzip"
   - "unrar"
-virtualization_packages:
-  - "virtualbox"
-  - "virtualbox-ext-oracle"
-  - "virtualbox-host-modules"
-  - "virtualbox-guest-iso"
-  - "packer-io"
-  - "docker"
-  - "vagrant"
-  - "net-tools"
 office_packages:
   - "dropbox"
   - "simple-scan"
@@ -72,6 +68,7 @@ office_packages:
   - "spotify"
   - "hplip"
   - "claws-mail"
+  - "aspell-en" #spell check for claws-mail
   # brother scan driver
   - "brscan4"
   - "gnome-calculator"
@@ -143,3 +140,5 @@ video_packages:
   - "gifsicle"
   - "byzanz"
   - "pngquant"
+  - "asoundconf"
+  - "pulseaudio"
